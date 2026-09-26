@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f2efe4;
+  --ink: #14202b;
+  --ink-2: #1c2b38;
+  --charcoal: #1c1e1b;
+  --amber: #d98f2b;
+  --amber-dim: #b97821;
+  --leaf: #3f7d5c;
+  --plum: #5b3a6e;
+  --line: rgba(28, 30, 27, 0.16);
+  --line-dark: rgba(242, 239, 228, 0.18);
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-charcoal: var(--charcoal);
+  --color-amber: var(--amber);
+  --color-amber-dim: var(--amber-dim);
+  --color-leaf: var(--leaf);
+  --color-plum: var(--plum);
+  --font-display: var(--font-archivo);
+  --font-body: var(--font-plex);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--charcoal);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* structural hairline rule, used instead of card shadows */
+.rule {
+  border-color: var(--line);
+}
+
+.rule-dark {
+  border-color: var(--line-dark);
+}
+
+::selection {
+  background: var(--amber);
+  color: var(--ink);
+}
+
+/* ledger-style numbered rows */
+.ledger-row {
+  border-top: 1px solid var(--line);
+}
+.ledger-row:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}

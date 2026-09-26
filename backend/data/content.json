@@ -1,0 +1,22 @@
+{
+  "pillars": [
+    { "id": "ifms", "name": "IFMS", "full": "Integrated Facility Management Services" },
+    { "id": "housekeeping", "name": "Housekeeping", "full": "Housekeeping & Cleaning" },
+    { "id": "security", "name": "Security", "full": "Manned Security Services" },
+    { "id": "electro-mechanical", "name": "Electro-Mechanical", "full": "Electro-Mechanical Services" },
+    { "id": "soft-services", "name": "Soft Services", "full": "Soft Services" },
+    { "id": "deep-cleaning", "name": "Deep Cleaning", "full": "Deep Cleaning" }
+  ],
+  "locations": [
+    "Kanpur", "Lucknow", "Prayagraj", "Varanasi", "Jaunpur", "Gorakhpur",
+    "Ghazipur", "Bhadohi", "Ballia", "Deoria", "Ramnagar", "Patna"
+  ],
+  "clients": [
+    "Aditya Birla Group", "Reliance Retail", "Tata Motors", "Max",
+    "Roma Builders & Promoters", "Globus", "Kambal Ghar",
+    "SND – Sri Navdurga Group", "The HHI Group of Hotels", "Priya Hospital",
+    "Rudra Group", "Capsicum", "Coral Group", "Annapurna",
+    "SASAMCH, Varanasi", "Chetmani", "Kashi Raj Apartment", "Rupdarshi",
+    "Vinayak Group"
+  ]
+}
