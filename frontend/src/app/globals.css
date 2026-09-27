@@ -40,7 +40,6 @@ body {
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* structural hairline rule, used instead of card shadows */
 .rule {
   border-color: var(--line);
 }
@@ -54,12 +53,19 @@ body {
   color: var(--ink);
 }
 
-/* ledger-style numbered rows */
 .ledger-row {
   border-top: 1px solid var(--line);
 }
 .ledger-row:last-child {
   border-bottom: 1px solid var(--line);
+}
+
+/* Subtle grid pattern for hero sections */
+.hero-pattern {
+  background-image:
+    linear-gradient(var(--charcoal) 1px, transparent 1px),
+    linear-gradient(90deg, var(--charcoal) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 @media (prefers-reduced-motion: reduce) {
