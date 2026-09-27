@@ -9,8 +9,11 @@ import {
   Line,
 } from "react-simple-maps";
 import { locations, statesCovered } from "@/data/content";
-import indiaGeo from "@/data/india-states.json";
+import indiaGeoRaw from "@/data/india-states.json";
 import indiaLines from "@/data/india-lines.json";
+import type { FeatureCollection } from "geojson";
+
+const indiaGeo = indiaGeoRaw as unknown as FeatureCollection;
 
 const coveredSet = new Set(statesCovered);
 
@@ -54,11 +57,7 @@ function StateShape({
       strokeOpacity={hovered ? 0.6 : 0.2}
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
-      style={{
-        default: { outline: "none", cursor: "pointer", transition: "fill-opacity 200ms" },
-        hover: { outline: "none", cursor: "pointer" },
-        pressed: { outline: "none" },
-      }}
+      style={{ outline: "none", cursor: "pointer", transition: "fill-opacity 200ms" }}
     />
   );
 }
@@ -96,7 +95,7 @@ export default function IndiaMap({ className = "" }: { className?: string }) {
         <Geographies geography={indiaGeo}>
           {({ geographies }) =>
             geographies.map((geo) => {
-              const name = geo.properties.name as string;
+              const name = (geo.properties?.name ?? "") as string;
               const covered = coveredSet.has(name);
               return (
                 <MemoStateShape
