@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 import { company } from "@/data/content";
 
@@ -25,7 +26,18 @@ export default function ContactPage() {
             with a scope and a quote.
           </p>
 
-          <div className="mt-10 space-y-6 border-t rule pt-8">
+          <div className="mt-8 relative h-[140px] w-full overflow-hidden border rule">
+            <div className="absolute inset-0 bg-gradient-to-r from-ink/40 to-transparent z-10" />
+            <Image
+              src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=600&q=80"
+              alt="Modern office building entrance"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 40vw"
+            />
+          </div>
+
+          <div className="mt-8 space-y-6 border-t rule pt-8">
             <div className="flex items-start gap-4">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center bg-amber/10 text-amber-dim">
                 <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">

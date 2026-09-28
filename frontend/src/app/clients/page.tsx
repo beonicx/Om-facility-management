@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { clients, targetSegments } from "@/data/content";
 
@@ -14,15 +15,32 @@ export default function ClientsPage() {
       <section className="border-b rule relative overflow-hidden">
         <div className="hero-pattern absolute inset-0 opacity-[0.03]" />
         <div className="mx-auto max-w-6xl px-6 py-16 md:py-20 relative">
-          <p className="font-display text-[13px] font-semibold uppercase tracking-[0.18em] text-amber-dim">
-            Clients
-          </p>
-          <h1 className="mt-4 max-w-2xl font-display text-[36px] font-extrabold leading-tight text-ink sm:text-[44px]">
-            Some of our prestigious clients.
-          </h1>
-          <p className="mt-6 max-w-lg text-[16px] leading-relaxed text-charcoal/75">
-            We have been working with our prestigious clients across sectors — delivering comprehensive facility management services.
-          </p>
+          <div className="grid gap-10 md:grid-cols-[1.3fr_0.7fr]">
+            <div>
+              <p className="font-display text-[13px] font-semibold uppercase tracking-[0.18em] text-amber-dim">
+                Clients
+              </p>
+              <h1 className="mt-4 max-w-2xl font-display text-[36px] font-extrabold leading-tight text-ink sm:text-[44px]">
+                Some of our prestigious clients.
+              </h1>
+              <p className="mt-6 max-w-lg text-[16px] leading-relaxed text-charcoal/75">
+                We have been working with our prestigious clients across sectors — delivering comprehensive facility management services.
+              </p>
+            </div>
+            <div className="hidden md:block">
+              <div className="relative h-[280px] w-full overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-t from-amber/[0.06] to-transparent z-10" />
+                <Image
+                  src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=700&q=80"
+                  alt="Business professionals in a corporate meeting"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 0vw, 35vw"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

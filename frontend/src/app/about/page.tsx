@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ServiceIcon } from "@/components/ServiceIcons";
 import { about, vision, mission, goal, whyOfm, company, pillars } from "@/data/content";
 
@@ -32,16 +33,31 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Service icons sidebar */}
-            <div className="hidden md:flex flex-col justify-center gap-4">
-              {pillars.slice(0, 4).map((p) => (
-                <div key={p.id} className="flex items-center gap-4 rounded border rule p-4 bg-paper">
-                  <div className="h-9 w-9 shrink-0 text-amber-dim">
-                    <ServiceIcon id={p.id} />
+            {/* About hero image */}
+            <div className="hidden md:flex flex-col gap-4">
+              <div className="relative h-[320px] w-full overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-t from-amber/[0.06] to-transparent z-10" />
+                <Image
+                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=700&q=80"
+                  alt="Professional team collaborating on facility management"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 0vw, 35vw"
+                  priority
+                />
+              </div>
+              <div className="flex gap-3">
+                {pillars.slice(0, 3).map((p) => (
+                  <div key={p.id} className="flex items-center gap-2 border rule px-3 py-2 bg-paper">
+                    <div className="h-5 w-5 shrink-0 text-amber-dim">
+                      <ServiceIcon id={p.id} />
+                    </div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-charcoal/60">
+                      {p.name}
+                    </span>
                   </div>
-                  <span className="text-[14px] font-medium text-charcoal/70">{p.full}</span>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>

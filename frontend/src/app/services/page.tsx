@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ServiceIcon } from "@/components/ServiceIcons";
 import {
   pillars,
@@ -49,17 +50,34 @@ export default function ServicesPage() {
       <section className="border-b rule relative overflow-hidden">
         <div className="hero-pattern absolute inset-0 opacity-[0.03]" />
         <div className="mx-auto max-w-6xl px-6 py-16 md:py-20 relative">
-          <p className="font-display text-[13px] font-semibold uppercase tracking-[0.18em] text-amber-dim">
-            Scope of work
-          </p>
-          <h1 className="mt-4 max-w-2xl font-display text-[36px] font-extrabold leading-tight text-ink sm:text-[44px]">
-            Six service pillars, run as one operation.
-          </h1>
-          <p className="mt-6 max-w-xl text-[16px] leading-relaxed text-charcoal/75">
-            Under the facility management division, dedicated operation managers
-            and qualified engineers coordinate every discipline below — so a
-            client deals with a single team instead of a stack of vendors.
-          </p>
+          <div className="grid gap-10 md:grid-cols-[1.3fr_0.7fr]">
+            <div>
+              <p className="font-display text-[13px] font-semibold uppercase tracking-[0.18em] text-amber-dim">
+                Scope of work
+              </p>
+              <h1 className="mt-4 max-w-2xl font-display text-[36px] font-extrabold leading-tight text-ink sm:text-[44px]">
+                Six service pillars, run as one operation.
+              </h1>
+              <p className="mt-6 max-w-xl text-[16px] leading-relaxed text-charcoal/75">
+                Under the facility management division, dedicated operation managers
+                and qualified engineers coordinate every discipline below — so a
+                client deals with a single team instead of a stack of vendors.
+              </p>
+            </div>
+            <div className="hidden md:block">
+              <div className="relative h-[300px] w-full overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-t from-amber/[0.06] to-transparent z-10" />
+                <Image
+                  src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=700&q=80"
+                  alt="Technical engineer performing facility maintenance"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 0vw, 35vw"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -175,19 +193,35 @@ export default function ServicesPage() {
       {/* Target segments */}
       <section className="border-b rule bg-gradient-to-r from-plum/[0.04] to-transparent">
         <div className="mx-auto max-w-6xl px-6 py-16">
-          <h2 className="font-display text-[28px] font-bold text-ink">Who we serve</h2>
-          <p className="mt-3 max-w-lg text-[15px] text-charcoal/70">
-            From retail and real estate to education and hospitality — OFM covers every sector.
-          </p>
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
-            {targetSegments.map((s) => (
-              <div
-                key={s}
-                className="border rule bg-paper px-4 py-3 text-center text-[14px] font-medium text-charcoal/75 transition-colors hover:border-amber/30 hover:text-charcoal"
-              >
-                {s}
+          <div className="grid gap-10 md:grid-cols-[1fr_0.5fr]">
+            <div>
+              <h2 className="font-display text-[28px] font-bold text-ink">Who we serve</h2>
+              <p className="mt-3 max-w-lg text-[15px] text-charcoal/70">
+                From retail and real estate to education and hospitality — OFM covers every sector.
+              </p>
+              <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-3">
+                {targetSegments.map((s) => (
+                  <div
+                    key={s}
+                    className="border rule bg-paper px-4 py-3 text-center text-[14px] font-medium text-charcoal/75 transition-colors hover:border-amber/30 hover:text-charcoal"
+                  >
+                    {s}
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+            <div className="hidden md:block">
+              <div className="relative h-full min-h-[280px] w-full overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-t from-plum/[0.08] to-transparent z-10" />
+                <Image
+                  src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80"
+                  alt="Commercial building under professional management"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 0vw, 25vw"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>

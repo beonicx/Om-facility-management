@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ServiceIcon } from "@/components/ServiceIcons";
 import {
   vision,
@@ -61,19 +62,26 @@ export default function Home() {
             </dl>
           </div>
 
-          {/* Hero visual — icon grid */}
-          <div className="hidden md:flex items-center justify-center">
-            <div className="grid grid-cols-2 gap-6 max-w-[320px]">
-              {pillars.slice(0, 6).map((p, i) => (
-                <div
-                  key={p.id}
-                  className="group flex flex-col items-center gap-3 rounded-lg border rule p-5 transition-all hover:border-amber/40 hover:shadow-sm"
-                  style={{ animationDelay: `${i * 80}ms` }}
-                >
-                  <div className="h-12 w-12 text-plum transition-colors group-hover:text-amber-dim">
+          {/* Hero visual — building image */}
+          <div className="hidden md:block relative">
+            <div className="relative h-[440px] w-full overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-t from-amber/[0.08] to-transparent z-10" />
+              <Image
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
+                alt="Modern commercial high-rise building"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 0vw, 45vw"
+                priority
+              />
+            </div>
+            <div className="mt-4 flex gap-3">
+              {pillars.slice(0, 3).map((p) => (
+                <div key={p.id} className="flex items-center gap-2 border rule px-3 py-2 bg-paper">
+                  <div className="h-5 w-5 text-amber-dim">
                     <ServiceIcon id={p.id} />
                   </div>
-                  <span className="text-center font-display text-[12px] font-bold uppercase tracking-wider text-charcoal/60">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-charcoal/60">
                     {p.name}
                   </span>
                 </div>
@@ -177,13 +185,18 @@ export default function Home() {
               <p className="mt-3 max-w-sm text-[15px] text-charcoal/70">
                 Not a pitch — the operating commitments written into every OFM contract.
               </p>
-              <div className="mt-8 flex items-center gap-4 border-t rule pt-6">
-                <div className="h-14 w-14 text-amber-dim">
-                  <SecurityIcon />
-                </div>
-                <div>
-                  <p className="font-display text-[22px] font-bold text-ink">20+</p>
-                  <p className="text-[13px] text-charcoal/60">Locations Pan-India</p>
+              <div className="mt-8 relative h-[200px] w-full overflow-hidden border rule">
+                <div className="absolute inset-0 bg-gradient-to-r from-ink/30 to-transparent z-10" />
+                <Image
+                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80"
+                  alt="Modern facility lobby with clean interiors"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute bottom-4 left-4 z-20">
+                  <p className="font-display text-[22px] font-bold text-paper">20+</p>
+                  <p className="text-[13px] text-paper/80">Locations Pan-India</p>
                 </div>
               </div>
               <Link
@@ -259,8 +272,19 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-br from-amber/15 via-amber/10 to-amber/5">
-        <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 py-16 md:flex-row md:items-center md:justify-between">
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=80"
+            alt=""
+            fill
+            className="object-cover opacity-[0.08]"
+            sizes="100vw"
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-amber/15 via-amber/10 to-amber/5" />
+        </div>
+        <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 py-16 md:flex-row md:items-center md:justify-between">
           <div>
             <h2 className="font-display text-[26px] font-bold text-ink">
               Ready to hand off the non-core work?

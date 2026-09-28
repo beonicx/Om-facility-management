@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ServiceIcon } from "@/components/ServiceIcons";
 import { recruitmentPolicy, trainingProgramme } from "@/data/content";
 
@@ -28,9 +29,17 @@ export default function CareersPage() {
               </p>
             </div>
 
-            <div className="hidden md:flex items-center justify-center">
-              <div className="h-32 w-32 text-amber-dim/30">
-                <ServiceIcon id="security" />
+            <div className="hidden md:block">
+              <div className="relative h-[300px] w-full overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-t from-amber/[0.06] to-transparent z-10" />
+                <Image
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=700&q=80"
+                  alt="Professional team training session"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 0vw, 35vw"
+                  priority
+                />
               </div>
             </div>
           </div>
@@ -93,6 +102,16 @@ export default function CareersPage() {
                   <p className="font-display text-[28px] font-bold text-amber">100%</p>
                   <p className="text-[12px] uppercase tracking-wide text-paper/50">Staff trained</p>
                 </div>
+              </div>
+
+              <div className="mt-8 relative h-[160px] w-full overflow-hidden border border-paper/10">
+                <Image
+                  src="https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=600&q=80"
+                  alt="Security personnel on duty"
+                  fill
+                  className="object-cover opacity-80"
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                />
               </div>
             </div>
 
